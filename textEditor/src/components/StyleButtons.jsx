@@ -1,65 +1,65 @@
 import KeyBoard from "./KeyBoard";
 function StyleButton(props) {
-    function changeTextColor() {
+    function changeTextColor(e) {
         props.textStyle(function (prev) {
             const newStyle = { ...prev };
-            { newStyle.color === 'red' ? newStyle.color = 'black' : newStyle.color = 'red' }
+            newStyle.color = `${e.target.value}`;
             return newStyle;
-        })
+        });
     }
     function changeTextFont() {
         props.textStyle(function (prev) {
             const newStyle = { ...prev };
-            const Fonts = ['Arial', 'Labster', 'Quicksand','Didot','Roboto','Garamond'];
+            const Fonts = [
+                "Arial",
+                "Labster",
+                "Quicksand",
+                "Didot",
+                "Roboto",
+                "Garamond",
+            ];
             let random = Math.floor(Math.random() * Fonts.length);
             console.log(random);
             newStyle.fontFamily = Fonts[random];
             // newStyle.fontFamily = newStyle.fontFamily === 'Arial' ? 'Cantarell' : 'Arial';
             return newStyle;
-        })
+        });
     }
 
-  function changeToUpperCase() {
-    props.textStyle((prev) => {
-      const newStyle = { ...prev };
+    function changeFontSize(e) {
+        props.textStyle(function (prev) {
+            const newStyle = { ...prev };
+            newStyle.fontSize = `${e.target.value}px`;
+            return newStyle;
+        });
+    }
 
-      // Assuming there is a property called 'text' in the style object
-      if (newStyle.text) {
-        newStyle.text = newStyle.text.toUpperCase();
-      }
+    return (
+        <div id='styleBtns'>
+            <input id='colorBtn' className='button' onChange={changeTextColor} type="color"></input>
+            <button id='fontBtn' className='button' onClick={changeTextFont}>change Font</button>
+            <input
+                id='sizeBtn' className='button'
+                type="number"
+                onChange={changeFontSize}
+                placeholder="font size"
+            ></input>
 
-      return newStyle;
-    });
-  }
-  function changeToFifteen() {
-    props.textStyle(function (prev) {
-      const newStyle = { ...prev };
-      newStyle.fontSize = newStyle.fontSize === "20px" ? "30px" : "20px";
-      return newStyle;
-    });
-  }
-   
-  return (
-    <div>
-      <button id='colorBtn' className='button'onClick={changeTextColor}>Red</button>
-      <button id='fontBtn' className='button'onClick={changeTextFont}>change Font</button>
-      <button id='sizeBtn' className='button'onClick={changeToFifteen}>30px</button>
-        
-      <button
-        id="changeAllTextStyle"
-        onClick={() =>
-          props.text(function (prev) {
-            let arr = [...prev];
-            return arr.map(function (item) {
-              item.style = props.currStyle;
-              return item;
-            });
-          })
-        }
-      >
-        change all
-      </button>
-    </div>
-  );
+            <button
+                id="changeAllTextStyle"
+                onClick={() =>
+                    props.text(function (prev) {
+                        let arr = [...prev];
+                        return arr.map(function (item) {
+                            item.style = props.currStyle;
+                            return item;
+                        });
+                    })
+                }
+            >
+                change all
+            </button>
+        </div>
+    );
 }
 export default StyleButton;
