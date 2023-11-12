@@ -36,7 +36,7 @@ function KeyBoard(props) {
           onClick={() => typeChar(letter, { ...props.currStyle })}
         />
       ))}
-     
+
       <button
         type="button"
         className="keyboardBtn"
@@ -60,6 +60,14 @@ function KeyBoard(props) {
         onClick={() => typeChar(" ")}
       >
         Space
+      </button>
+      <button
+        type="button"
+        className="keyboardBtn"
+        id="enterBtn"
+        onClick={() => typeChar("\n")}
+      >
+        Enter
       </button>
     </div>
   );
