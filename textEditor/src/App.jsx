@@ -4,7 +4,7 @@ import KeyBoard from "./components/KeyBoard";
 import StyleButton from "./components/StyleButtons";
 function App() {
   const [text, setText] = useState("");
-  const [textStyle, setTextStyle] = useState({color: 'black'});
+  const [textStyle, setTextStyle] = useState({color: 'black'}, {font});
   return (
     <>
       <div id="showText" style={{ whiteSpace: "pre-wrap" }}>
