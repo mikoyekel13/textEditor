@@ -59,6 +59,7 @@ function StyleButton(props) {
             >
                 change all
             </button>
+            
         </div>
     );
 }
