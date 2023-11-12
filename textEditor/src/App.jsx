@@ -6,7 +6,9 @@ function App() {
   const [text, setText] = useState("");
   return (
     <>
-      <div id="showText">{text}</div>
+      <div id="showText" style={{ whiteSpace: "pre-wrap" }}>
+        {text}
+      </div>
       <KeyBoard text={setText} />
     </>
   );
