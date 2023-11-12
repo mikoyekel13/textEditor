@@ -7,7 +7,9 @@ function App() {
   const [textStyle, setTextStyle] = useState({color: 'black'});
   return (
     <>
-      <div style={textStyle} id="showText">{text}</div>
+      <div id="showText" style={{ whiteSpace: "pre-wrap" }}>
+        {text}
+      </div>
       <KeyBoard text={setText} />
       <StyleButton textStyle={setTextStyle} />
     </>
