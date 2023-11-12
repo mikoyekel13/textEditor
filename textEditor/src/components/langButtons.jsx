@@ -4,9 +4,16 @@ function LangButtons(props) {
       <button
         type="button"
         className="langBtn"
-        onClick={() => props.lang("eng")}
+        onClick={() => props.lang("engLC")}
       >
-        English
+        English (lower case)
+      </button>
+      <button
+        type="button"
+        className="langBtn"
+        onClick={() => props.lang("engUC")}
+      >
+        English (upper case)
       </button>
       <button
         type="button"

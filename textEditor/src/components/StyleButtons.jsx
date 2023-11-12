@@ -15,7 +15,7 @@ function StyleButton(props) {
     props.textStyle(function (prev) {
       const newStyle = { ...prev };
       const Fonts = ["Futura", "Lato", "Garamond", "Arial"];
-      const random = Math.floor(Math.random * Fonts.length);
+      const random = Math.floor(Math.random() * Fonts.length);
       newStyle.fontFamily =
         newStyle.fontFamily === "Arial" ? "Cantarell" : "Arial";
       return newStyle;
