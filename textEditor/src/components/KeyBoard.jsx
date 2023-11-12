@@ -14,7 +14,7 @@ function KeyBoard(props) {
   }
 
   return (
-    <div>
+    <div id='keyboard'>
       {letters.split(",").map((letter, index) => (
         <Letter char={letter} key={index} onClick={() => typeChar(letter)} />
         

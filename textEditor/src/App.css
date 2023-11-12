@@ -1,1 +1,16 @@
+.text{
+    width:90vw;
+    height:50vh;
+    margin:20px;
+    background-color: rgb(255, 255, 0);
+} 
+#keyboard{
+    display: grid;
+    grid-template-columns: repeat(10, 2fr); /* 5 columns */
+    grid-template-rows: repeat(5, 1fr);    /* 2 rows */
+    gap: 10px;   
 
+}
+body{
+    background-color: rgb(255, 230, 0);
+}

@@ -1,15 +1,15 @@
 import { useState } from "react";
-import "./App.css";
+import classes from"./App.css";
 import KeyBoard from "./components/KeyBoard";
 import StyleButton from "./components/StyleButtons";
 function App() {
   const [text, setText] = useState("");
-  const [textStyle, setTextStyle] = useState({ whiteSpace: "pre-wrap", color: 'black', fontFamily:'Cantarell'});
+  const [textStyle, setTextStyle] = useState({ whiteSpace: "pre-wrap", color: 'black', fontFamily: 'Cantarell', fontSize: '16px' });
   return (
     <>
-      <div id="showText" style={textStyle}>
+      <div className='text'id="showText" style={textStyle}>
         {text}
-      </div>
+      </div> 
       <KeyBoard text={setText} />
       <StyleButton textStyle={setTextStyle} />
     </>
