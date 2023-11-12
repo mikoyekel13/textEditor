@@ -16,14 +16,15 @@ function KeyBoard(props) {
         "א,ב,ג,ד,ה,ו,ז,ח,ט,י,כ,ל,מ,נ,ס,ע,פ,צ,ק,ר,ש,ת,0,1,2,3,4,5,6,7,8,9,!,?";
       break;
   }
-  function typeChar(char, style) {
-    props.text((prev) => [...prev, { char: char, style: style }]);
-  }
+
   function deleteChar() {
     props.text((prev) => [...prev.slice(0, prev.length - 1)]);
   }
   function deleteAll() {
     props.text([]);
+  }
+  function typeChar(char, style) {
+    props.text((prev) => [...prev, { char: char, style: style }]);
   }
 
   return (
@@ -35,14 +36,7 @@ function KeyBoard(props) {
           onClick={() => typeChar(letter, { color: "green" })}
         />
       ))}
-      <button
-        type="button"
-        className="keyboardBtn"
-        id="spaceBtn"
-        onClick={() => typeChar(" ")}
-      >
-        Space
-      </button>
+     
       <button
         type="button"
         className="keyboardBtn"
@@ -58,6 +52,14 @@ function KeyBoard(props) {
         onClick={deleteAll}
       >
         Delete All
+      </button>
+      <button
+        type="button"
+        className="keyboardBtn"
+        id="spaceBtn"
+        onClick={() => typeChar(" ")}
+      >
+        Space
       </button>
     </div>
   );

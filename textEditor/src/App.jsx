@@ -11,6 +11,7 @@ function App() {
     whiteSpace: "pre-wrap",
     color: "black",
     fontFamily: "Cantarell",
+    fontSize: '20px'
   });
   return (
     <>

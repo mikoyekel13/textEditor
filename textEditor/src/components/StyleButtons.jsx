@@ -10,7 +10,11 @@ function StyleButton(props) {
     function changeTextFont() {
         props.textStyle(function (prev) {
             const newStyle = { ...prev };
-            newStyle.fontFamily = newStyle.fontFamily === 'Arial' ? 'Cantarell' : 'Arial';
+            const Fonts = ['Arial', 'Labster', 'Quicksand','Didot','Roboto','Garamond'];
+            let random = Math.floor(Math.random() * Fonts.length);
+            console.log(random);
+            newStyle.fontFamily = Fonts[random];
+            // newStyle.fontFamily = newStyle.fontFamily === 'Arial' ? 'Cantarell' : 'Arial';
             return newStyle;
         })
     }
@@ -30,15 +34,17 @@ function StyleButton(props) {
     function changeToFifteen() {
         props.textStyle(function (prev) {
             const newStyle = { ...prev };
-            newStyle.fontSize = newStyle.fontSize === '20px' ? '16px' : '20px';
+            newStyle.fontSize = newStyle.fontSize === '20px' ? '30px' : '20px';
             return newStyle;
         })
     }
+   
     return (
         <div>
             <button onClick={changeTextColor}>Red</button>
             <button onClick={changeTextFont}>change Font</button>
-            <button onClick={changeToFifteen}>20px</button>
+            <button onClick={changeToFifteen}>30px</button>
+        
         </div>)
 }
 export default StyleButton;

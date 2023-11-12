@@ -1,16 +1,27 @@
-.text{
+#showText{
     width:90vw;
     height:50vh;
-    margin:20px;
-    background-color: rgb(255, 255, 0);
+    margin:20px 0px;
+    margin-left: 70px;
+    
+    background-color: rgb(255, 192, 203);
 } 
 #keyboard{
     display: grid;
     grid-template-columns: repeat(10, 2fr); /* 5 columns */
     grid-template-rows: repeat(5, 1fr);    /* 2 rows */
-    gap: 10px;   
+    gap: 10px; 
+    margin-left:5rem;  
 
 }
 body{
-    background-color: rgb(255, 230, 0);
+    background-color: rgb(255, 182, 193);
+    height:fit-content;
+}
+#spaceBtn{
+    height:50px;
+width:500px;
+position: absolute;
+top:82vh;
+left:30vw;
 }
