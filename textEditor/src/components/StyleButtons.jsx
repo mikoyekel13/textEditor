@@ -19,32 +19,47 @@ function StyleButton(props) {
         })
     }
 
-    function changeToUpperCase() {
-        props.textStyle(prev => {
-            const newStyle = { ...prev };
+  function changeToUpperCase() {
+    props.textStyle((prev) => {
+      const newStyle = { ...prev };
 
-            // Assuming there is a property called 'text' in the style object
-            if (newStyle.text) {
-                newStyle.text = newStyle.text.toUpperCase();
-            }
+      // Assuming there is a property called 'text' in the style object
+      if (newStyle.text) {
+        newStyle.text = newStyle.text.toUpperCase();
+      }
 
-            return newStyle;
-        });
-    }
-    function changeToFifteen() {
-        props.textStyle(function (prev) {
-            const newStyle = { ...prev };
-            newStyle.fontSize = newStyle.fontSize === '20px' ? '30px' : '20px';
-            return newStyle;
-        })
-    }
+      return newStyle;
+    });
+  }
+  function changeToFifteen() {
+    props.textStyle(function (prev) {
+      const newStyle = { ...prev };
+      newStyle.fontSize = newStyle.fontSize === "20px" ? "30px" : "20px";
+      return newStyle;
+    });
+  }
    
-    return (
-        <div>
-            <button onClick={changeTextColor}>Red</button>
-            <button onClick={changeTextFont}>change Font</button>
-            <button onClick={changeToFifteen}>30px</button>
+  return (
+    <div>
+      <button onClick={changeTextColor}>Red</button>
+      <button onClick={changeTextFont}>change Font</button>
+      <button onClick={changeToFifteen}>30px</button>
         
-        </div>)
+      <button
+        id="changeAllTextStyle"
+        onClick={() =>
+          props.text(function (prev) {
+            let arr = [...prev];
+            return arr.map(function (item) {
+              item.style = props.currStyle;
+              return item;
+            });
+          })
+        }
+      >
+        change all
+      </button>
+    </div>
+  );
 }
 export default StyleButton;

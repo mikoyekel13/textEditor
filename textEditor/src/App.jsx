@@ -1,5 +1,4 @@
 import { useState } from "react";
-import classes from"./App.css";
 import KeyBoard from "./components/KeyBoard";
 import StyleButton from "./components/StyleButtons";
 import LangButtons from "./components/langButtons";
@@ -15,7 +14,7 @@ function App() {
   });
   return (
     <>
-      <div id="showText" style={textStyle}>
+      <div id="showText" style={{ whiteSpace: "pre-wrap" }}>
         {text.map(function (item, index) {
           return (
             <span style={item.style} key={index}>
@@ -24,8 +23,12 @@ function App() {
           );
         })}
       </div>
-      <KeyBoard text={setText} lang={lang} />
-      <StyleButton textStyle={setTextStyle} />
+      <KeyBoard text={setText} lang={lang} currStyle={textStyle} />
+      <StyleButton
+        textStyle={setTextStyle}
+        currStyle={textStyle}
+        text={setText}
+      />
       <LangButtons lang={setLang} />
     </>
   );
