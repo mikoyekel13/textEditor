@@ -1,8 +1,15 @@
+import React, { useState } from "react";
 import "./App.css";
-import keyBoard from "./components/KeyBoard"
-function App() {
+import KeyBoard from "./components/KeyBoard";
 
-  return <></>;
+function App() {
+  const [text, setText] = useState("trial");
+  return (
+    <>
+      <div id="showText">{text}</div>
+      <KeyBoard />
+    </>
+  );
 }
 
 export default App;
