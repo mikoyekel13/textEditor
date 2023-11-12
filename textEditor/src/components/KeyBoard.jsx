@@ -5,15 +5,15 @@ function KeyBoard(props) {
   switch (props.lang) {
     case "engLC":
       letters =
-        "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9,!,?";
+        "1,2,3,4,5,6,7,8,9,0,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m,<,>,?,!,-,+,*,/";
       break;
     case "engUC":
       letters =
-        "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9,!,?";
+        "1,2,3,4,5,6,7,8,9,0,Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M,<,>,?,!,-,+,*,/";
       break;
     case "heb":
       letters =
-        "א,ב,ג,ד,ה,ו,ז,ח,ט,י,כ,ל,מ,נ,ס,ע,פ,צ,ק,ר,ש,ת,0,1,2,3,4,5,6,7,8,9,!,?";
+        "1,2,3,4,5,6,7,8,9,0,<,>,ק,ר,א,ט,ו,ן,ם,פ,ש,ד,ג,כ,ע,י,ח,ל,ך,ף,ז,ס,ב,ה,נ,מ,צ,ת,ץ,?,!,-,+,*,/";
       break;
   }
   function typeChar(char, style) {
@@ -27,12 +27,12 @@ function KeyBoard(props) {
   }
 
   return (
-    <div id='keyboard'>
+    <div id="keyboard">
       {letters.split(",").map((letter, index) => (
         <Letter
           char={letter}
           key={index}
-          onClick={() => typeChar(letter, { color: "green" })}
+          onClick={() => typeChar(letter, { ...props.currStyle })}
         />
       ))}
       <button
