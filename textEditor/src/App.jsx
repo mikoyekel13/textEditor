@@ -6,11 +6,12 @@ import LangButtons from "./components/langButtons";
 
 function App() {
   const [text, setText] = useState("");
+  const [lang, setLang] = useState("eng");
   const [textStyle, setTextStyle] = useState({
     whiteSpace: "pre-wrap",
     color: "black",
+    fontFamily: "Cantarell",
   });
-  const [lang, setLang] = useState("eng");
   return (
     <>
       <div id="showText" style={textStyle}>
