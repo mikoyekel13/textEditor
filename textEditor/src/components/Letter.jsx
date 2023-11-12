@@ -5,11 +5,12 @@ function Letter(props) {
     <button
       className="letterButton"
       id={`${props.char}-Char`}
-      onClick={props.typeChar}
+      onClick={props.onClick}
     >
       {props.char}
     </button>
   );
+  e;
 }
 
 export default Letter;
