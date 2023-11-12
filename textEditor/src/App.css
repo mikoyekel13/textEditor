@@ -19,9 +19,15 @@ body{
     height:fit-content;
 }
 #spaceBtn{
-    height:50px;
-width:500px;
-position: absolute;
-top:82vh;
+ height:50px;
+width:540px;
+grid-column: 7 / span 4;
+/* position: absolute;
+top:80vh;
 left:30vw;
+} */
+}
+.button{
+    margin: 20px;
+
 }

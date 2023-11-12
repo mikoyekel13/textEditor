@@ -41,9 +41,9 @@ function StyleButton(props) {
    
   return (
     <div>
-      <button onClick={changeTextColor}>Red</button>
-      <button onClick={changeTextFont}>change Font</button>
-      <button onClick={changeToFifteen}>30px</button>
+      <button id='colorBtn' className='button'onClick={changeTextColor}>Red</button>
+      <button id='fontBtn' className='button'onClick={changeTextFont}>change Font</button>
+      <button id='sizeBtn' className='button'onClick={changeToFifteen}>30px</button>
         
       <button
         id="changeAllTextStyle"
