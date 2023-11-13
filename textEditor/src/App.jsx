@@ -6,10 +6,11 @@ import LangButtons from "./components/langButtons";
 function App() {
   const [text, setText] = useState([]);
   const [lang, setLang] = useState("engLC");
+  const [undo,setUndo]=useState([]);
   const [textStyle, setTextStyle] = useState({
     whiteSpace: "pre-wrap",
     color: "black",
-    fontFamily: "Cantarell",
+    fontFamily: 'sans-serif',
     fontSize: '20px'
   });
   return (
@@ -23,11 +24,13 @@ function App() {
           );
         })}
       </div>
-      <KeyBoard text={setText} lang={lang} currStyle={textStyle} />
+      <KeyBoard text={setText} lang={lang} currStyle={textStyle} undo={setUndo} lastText={undo} firstText={text}/>
       <StyleButton
         textStyle={setTextStyle}
         currStyle={textStyle}
         text={setText}
+        undo={setUndo}
+        firstText={text}
       />
       <LangButtons lang={setLang} />
     </>

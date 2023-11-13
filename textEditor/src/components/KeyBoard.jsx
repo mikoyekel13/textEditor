@@ -1,6 +1,6 @@
 import Letter from "./Letter";
-
 function KeyBoard(props) {
+
   let letters;
   switch (props.lang) {
     case "engLC":
@@ -13,17 +13,20 @@ function KeyBoard(props) {
       break;
     case "heb":
       letters =
-        "1,2,3,4,5,6,7,8,9,0,<,>,ק,ר,א,ט,ו,ן,ם,פ,ש,ד,ג,כ,ע,י,ח,ל,ך,ף,ז,ס,ב,ה,נ,מ,צ,ת,ץ,?,!,-,+,*,/";
+        "1,2,3,4,5,6,7,8,9,0,<,>,ק,ר,א,ט,ו,ן,ם,פ,ש,ד,ג,כ,ע,י,ח,ל,ך,ף,ז,ס,ב,ה,נ,מ,צ,ת,ץ,?,!,+,*,/";
       break;
   }
 
   function deleteChar() {
+    props.undo((prev) => [...prev, props.firstText]);
     props.text((prev) => [...prev.slice(0, prev.length - 1)]);
   }
   function deleteAll() {
+    props.undo((prev) => [...prev, props.firstText]);
     props.text([]);
   }
   function typeChar(char, style) {
+    props.undo((prev) => [...prev, props.firstText]);
     props.text((prev) => [...prev, { char: char, style: style }]);
   }
 
@@ -36,7 +39,7 @@ function KeyBoard(props) {
           onClick={() => typeChar(letter, { ...props.currStyle })}
         />
       ))}
-     
+
       <button
         type="button"
         className="keyboardBtn"
@@ -60,6 +63,24 @@ function KeyBoard(props) {
         onClick={() => typeChar(" ")}
       >
         Space
+      </button>
+      <button
+        type="button"
+        className="keyboardBtn"
+        id="enterBtn"
+        onClick={() => typeChar("\n")}
+      >
+        Enter
+      </button>
+      <button
+        type="button"
+        className="keyboardBtn"
+        id="undoBtn"
+        onClick={() => {
+          props.undo((prev) => [...prev.slice(0, prev.length - 1)]);
+          props.text(props.lastText[props.lastText.length - 1])}}
+      >
+        Undo
       </button>
     </div>
   );
