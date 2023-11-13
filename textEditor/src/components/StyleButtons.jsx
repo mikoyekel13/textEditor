@@ -7,24 +7,15 @@ function StyleButton(props) {
     });
   }
   function changeTextFont() {
-    props.textStyle(function (prev) {
+    props.textStyle((prev) => {
       const newStyle = { ...prev };
-      const Fonts = [
-        "Arial",
-        "Labster",
-        "Quicksand",
-        "Didot",
-        "Roboto",
-        "Garamond",
-      ];
+      const Fonts = ["monospace", "Gill Sans MT", "Trebuchet MS"];
       let random = Math.floor(Math.random() * Fonts.length);
-      console.log(random);
       newStyle.fontFamily = Fonts[random];
-      // newStyle.fontFamily = newStyle.fontFamily === 'Arial' ? 'Cantarell' : 'Arial';
+      console.log(newStyle);
       return newStyle;
     });
   }
-
   function changeFontSize(e) {
     props.textStyle(function (prev) {
       const newStyle = { ...prev };
@@ -71,21 +62,22 @@ function StyleButton(props) {
       </div>
       <button
         id="changeAllTextStyle"
-        onClick={() =>
+        onClick={() => {
           props.text(function (prev) {
             let arr = [...prev];
             return arr.map(function (item) {
               item.style = props.currStyle;
               return item;
             });
-          })
-        }
+          });
+        }}
       >
         change all
       </button>
       <button
-        id="resetAllTextStyle"
-        onClick={() =>
+        id="changeAllTextStyle"
+        onClick={() => {
+          props.undo((prev) => [...prev, props.firstText]);
           props.text(function (prev) {
             let arr = [...prev];
             return arr.map(function (item) {
@@ -97,8 +89,8 @@ function StyleButton(props) {
               };
               return item;
             });
-          })
-        }
+          });
+        }}
       >
         reset all
       </button>
