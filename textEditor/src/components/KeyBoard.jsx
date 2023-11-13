@@ -13,7 +13,7 @@ function KeyBoard(props) {
       break;
     case "heb":
       letters =
-        "1,2,3,4,5,6,7,8,9,0,<,>,ק,ר,א,ט,ו,ן,ם,פ,ש,ד,ג,כ,ע,י,ח,ל,ך,ף,ז,ס,ב,ה,נ,מ,צ,ת,ץ,?,!,-,+,*,/";
+        "1,2,3,4,5,6,7,8,9,0,<,>,ק,ר,א,ט,ו,ן,ם,פ,ש,ד,ג,כ,ע,י,ח,ל,ך,ף,ז,ס,ב,ה,נ,מ,צ,ת,ץ,?,!,+,*,/";
       break;
   }
 
@@ -40,7 +40,7 @@ function KeyBoard(props) {
       <button
         type="button"
         className="keyboardBtn"
-        id="deleteAllBtn"
+        id="deleteLastBtn"
         onClick={deleteChar}
       >
         Delete Last

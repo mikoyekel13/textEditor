@@ -1,4 +1,3 @@
-import KeyBoard from "./KeyBoard";
 function StyleButton(props) {
   function changeTextColor(e) {
     props.textStyle(function (prev) {
@@ -33,6 +32,13 @@ function StyleButton(props) {
       return newStyle;
     });
   }
+  function changeTextAlign(direction) {
+    props.textAlign(function (prev) {
+      const newStyle = { ...prev };
+      newStyle.textAlign = direction;
+      return newStyle;
+    });
+  }
 
   return (
     <div id="styleBtns">
@@ -52,7 +58,17 @@ function StyleButton(props) {
         onChange={changeFontSize}
         placeholder="font size"
       ></input>
-
+      <div id="alignDiv">
+        <button onClick={() => changeTextAlign("left")} className="alignBtn">
+          left
+        </button>
+        <button onClick={() => changeTextAlign("center")} className="alignBtn">
+          center
+        </button>
+        <button onClick={() => changeTextAlign("right")} className="alignBtn">
+          right
+        </button>
+      </div>
       <button
         id="changeAllTextStyle"
         onClick={() =>
@@ -68,7 +84,7 @@ function StyleButton(props) {
         change all
       </button>
       <button
-        id="changeAllTextStyle"
+        id="resetAllTextStyle"
         onClick={() =>
           props.text(function (prev) {
             let arr = [...prev];

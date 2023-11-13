@@ -10,11 +10,15 @@ function App() {
     whiteSpace: "pre-wrap",
     color: "black",
     fontFamily: "Cantarell",
-    fontSize: '20px'
+    fontSize: "20px",
+  });
+  const [containerStyle, setContainerStyle] = useState({
+    whiteSpace: "pre-wrap",
+    textAlign: "left",
   });
   return (
     <>
-      <div id="showText" style={{ whiteSpace: "pre-wrap" }}>
+      <div id="showText" style={containerStyle}>
         {text.map(function (item, index) {
           return (
             <span style={item.style} key={index}>
@@ -28,6 +32,7 @@ function App() {
         textStyle={setTextStyle}
         currStyle={textStyle}
         text={setText}
+        textAlign={setContainerStyle}
       />
       <LangButtons lang={setLang} />
     </>
